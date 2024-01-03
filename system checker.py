@@ -2,6 +2,7 @@ import os
 import sys
 import platform
 import multiprocessing
+import psutil
 
 
 
@@ -29,13 +30,16 @@ if s == 'win32':
     print("and the system architecture", t)
     print("Name of the machine is:", n )
     print("cpu cores are:", multiprocessing.cpu_count())
+    print("ram is: ", psutil.virtual_memory())
 if s == 'darwin':
     print("mac os ")
     print("Your processor is ", platform.processor())
     print("platform.platform()")
     print("and the system architecture", t)
     print("Name of the machine is:", n )
-    print(e)   
+    print(e)
+    print("ram is: ", psutil.virtual_memory())
+    print("cpu cores are:", multiprocessing.cpu_count())    
 if s ==  'linux':
     print("linux")
     print("Your processor is ", platform.processor())
@@ -43,13 +47,12 @@ if s ==  'linux':
     print("and the system architecture", t)
     print("Name of the machine is:", n )
     print("platform.platform()")
-    print(e)    
+    print(e)
+    print("ram is: ", psutil.virtual_memory())
+    print("cpu cores are:", multiprocessing.cpu_count())    
 if s == 'cygwin':
     print("windows")
     print("Please run this on command prompt!")
-    print("and the system architecture", t)
-    print("Name of the machine is:", n )
-    print("platform.platform()")
-    print(e)
+
 e =input("press enter key to continue...")
     
