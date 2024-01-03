@@ -51,5 +51,5 @@ if s == 'cygwin':
     print("Name of the machine is:", n )
     print("platform.platform()")
     print(e)
-e =input("press esc key to continue...")
+e =input("press enter key to continue...")
     
