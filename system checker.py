@@ -6,7 +6,7 @@ import psutil
 
 
 
-
+t = platform.architecture()
 s = sys.platform
 if s == 'win32':
     y = os.name
@@ -16,7 +16,6 @@ if s == 'win32':
     e = os.name
     r = sys.getwindowsversion().platform_version
     m = sys.getwindowsversion().product_type
-    t = platform.architecture()
     n = platform.node()
     print('windows ',  g, e, " ", 'build ', h, ".", platform.platform())
     print("And the platform version!", r)
@@ -31,6 +30,7 @@ if s == 'win32':
     print("Name of the machine is:", n )
     print("cpu cores are:", multiprocessing.cpu_count())
     print("ram is: ", psutil.virtual_memory())
+    os.system("C:\\sysname\rescources\vmtest.bat")
 if s == 'darwin':
     print("mac os ")
     print("Your processor is ", platform.processor())
