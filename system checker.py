@@ -8,6 +8,8 @@ import psutil
 
 t = platform.architecture()
 s = sys.platform
+ip = psutil.net_if_addrs()
+user = psutil.users()
 
 def is_virtual_machine():
     try:
@@ -44,7 +46,8 @@ if s == 'win32':
             print("This is a virtual machine.")
     else:
         print("This is not a virtual machine.")
-    
+    print(ip)
+    print(user)
 if s == 'darwin':
     print("mac os ")
     print("Your processor is ", platform.processor())
@@ -59,7 +62,8 @@ if s == 'darwin':
             print("This is a virtual machine.")
     else:
         print("This is not a virtual machine.")
-        
+    print(ip)
+    print(user)    
 if s ==  'linux':
     print("linux")
     print("Your processor is ", platform.processor())
@@ -75,10 +79,13 @@ if s ==  'linux':
             print("This is a virtual machine.")
     else:
         print("This is not a virtual machine.")
-    
+    print(ip)
+    print(user)
 if s == 'cygwin':
     print("windows")
     print("Please run this on command prompt!")
+    print(user)
+    
 e = input("press enter key to continue . . .")
 
     
