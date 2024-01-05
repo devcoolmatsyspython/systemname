@@ -8,6 +8,15 @@ import psutil
 
 t = platform.architecture()
 s = sys.platform
+
+def is_virtual_machine():
+    try:
+        # Check if the process is running inside a virtual machine
+        return psutil.virtual_memory().total != psutil.virtual_memory().available
+    except Exception as e:
+        print(f"Error detecting virtual machine: {e}")
+        return False
+
 if s == 'win32':
     y = os.name
     g = sys.getwindowsversion().major
@@ -30,7 +39,12 @@ if s == 'win32':
     print("Name of the machine is:", n )
     print("cpu cores are:", multiprocessing.cpu_count())
     print("ram is: ", psutil.virtual_memory())
-    os.system("C:\\sysname\rescources\vmtest.bat")
+    if __name__ == "__main__":
+        if is_virtual_machine():
+            print("This is a virtual machine.")
+    else:
+        print("This is not a virtual machine.")
+    
 if s == 'darwin':
     print("mac os ")
     print("Your processor is ", platform.processor())
@@ -39,7 +53,13 @@ if s == 'darwin':
     print("Name of the machine is:", n )
     print(e)
     print("ram is: ", psutil.virtual_memory())
-    print("cpu cores are:", multiprocessing.cpu_count())    
+    print("cpu cores are:", multiprocessing.cpu_count())
+    if __name__ == "__main__":
+        if is_virtual_machine():
+            print("This is a virtual machine.")
+    else:
+        print("This is not a virtual machine.")
+        
 if s ==  'linux':
     print("linux")
     print("Your processor is ", platform.processor())
@@ -49,10 +69,16 @@ if s ==  'linux':
     print("platform.platform()")
     print(e)
     print("ram is: ", psutil.virtual_memory())
-    print("cpu cores are:", multiprocessing.cpu_count())    
+    print("cpu cores are:", multiprocessing.cpu_count())
+    if __name__ == "__main__":
+        if is_virtual_machine():
+            print("This is a virtual machine.")
+    else:
+        print("This is not a virtual machine.")
+    
 if s == 'cygwin':
     print("windows")
     print("Please run this on command prompt!")
+e = input("press enter key to continue . . .")
 
-e =input("press enter key to continue...")
     
